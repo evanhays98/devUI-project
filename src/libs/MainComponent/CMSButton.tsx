@@ -6,7 +6,7 @@ import { theme, Theme } from '../theme';
 const useStyles = createUseStyles<string, {}, any>(
   (theme: Theme) => (@Start{
   blockColor: {
-    background: '#22778e',
+      background: '#22778e',
       minWidth: '@Stheme.marginBase * 10@E',
       borderRadius: '@Stheme.borderRadius.std@E',
       '@S...theme.fonts.label@E',
@@ -21,11 +21,11 @@ const useStyles = createUseStyles<string, {}, any>(
       gap: '@Stheme.marginBase@E',
       transition: 'all 0.3s ease',
       width: 'fit-content',
-  ...valueProps?.desktop,
+      ...valueProps?.desktop,
 
       '&:hover': {
-    ...valueProps?.hover,
-    },
+        ...valueProps?.hover,
+      },
   },
   '@container (max-width: 768px)': {
     blockColor: {
