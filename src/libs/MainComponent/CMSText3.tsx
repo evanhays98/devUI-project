@@ -2,7 +2,7 @@ import React, { forwardRef, useMemo } from 'react';
 import { createUseStyles } from 'react-jss';
 import { theme, Theme } from '../theme';
 
-const useStyles = createUseStyles<string, { style: any }, any>(
+const useStyles = createUseStyles<string, {}, any>(
   (theme: Theme) => (@Start{
     text: {
       fontFamily: 'Montserrat, sans-serif',
