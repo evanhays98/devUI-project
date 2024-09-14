@@ -9,7 +9,6 @@ const useStyles = createUseStyles<string, {}, any>(
       background: '#22778e',
       minWidth: '@Stheme.marginBase * 10@E',
       borderRadius: '@Stheme.borderRadius.std@E',
-      '@S...theme.fonts.label@E',
       color: '@Stheme.colors.background@E',
       fontWeight: 'bold',
       display: 'flex',
