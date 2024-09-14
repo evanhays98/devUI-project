@@ -1,18 +1,16 @@
 import classnames from 'classnames';
-import React, { forwardRef, useMemo } from 'react';
+import React from 'react';
 import { createUseStyles } from 'react-jss';
 import { theme, Theme } from '../theme';
-import { useCustomStyle } from '../../core/StyleContext';
-import { v4 as uuidv4 } from 'uuid';
 
-const useStyles = createUseStyles<string, { style: any }, any>(
-  (theme: Theme) => ({
-    blockColor: (props) => ({
-      background: '#22778e',
-      minWidth: theme.marginBase * 10,
-      borderRadius: theme.borderRadius.std,
-      ...theme.fonts.label,
-      color: theme.colors.background,
+const useStyles = createUseStyles<string, {}, any>(
+  (theme: Theme) => (@Start{
+  blockColor: {
+    background: '#22778e',
+      minWidth: '@Stheme.marginBase * 10@E',
+      borderRadius: '@Stheme.borderRadius.std@E',
+      '@S...theme.fonts.label@E',
+      color: '@Stheme.colors.background@E',
       fontWeight: 'bold',
       display: 'flex',
       border: 0,
@@ -20,30 +18,29 @@ const useStyles = createUseStyles<string, { style: any }, any>(
       alignItems: 'center',
       alignContent: 'center',
       justifyContent: 'center',
-      gap: theme.marginBase,
+      gap: '@Stheme.marginBase@E',
       transition: 'all 0.3s ease',
       width: 'fit-content',
-
-      ...props.style?.desktop,
+  ...valueProps?.desktop,
 
       '&:hover': {
-        ...props.style?.hover,
-      },
-    }),
-    '@container (max-width: 768px)': {
-      text: (props) => ({
-        ...props.style?.tablet,
-      }),
+    ...valueProps?.hover,
     },
-    '@container (max-width: 480px)': {
-      text: (props) => ({
-        ...props.style?.mobile,
-      }),
+  },
+  '@container (max-width: 768px)': {
+    blockColor: {
+    ...valueProps?.tablet,
     },
-    full: {
-      width: '100%',
+  },
+  '@container (max-width: 480px)': {
+    blockColor: {
+    ...valueProps?.mobile,
     },
-  }),
+  },
+  full: {
+    width: '100%',
+  },
+}@End),
 );
 
 interface BaseButtonProps {
@@ -52,43 +49,21 @@ interface BaseButtonProps {
   onClick?: () => void;
   type?: 'button' | 'submit' | 'reset';
   full?: boolean;
-  variant?: string;
-  uniqueid?: string;
 }
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
 
-type GenericButtonProps = ButtonProps;
+export const CMSButton@variant = (props: BaseButtonProps & ButtonProps) => {
+  const { className, onClick, type, full, children, ...rest } = props;
 
-export const CMSButton = forwardRef<
-  HTMLButtonElement,
-  BaseButtonProps & GenericButtonProps
->((props, ref) => {
-  const { color, uniqueid, className, onClick, type, full, variant, ...rest } =
-    props;
-
-  const { values } = useCustomStyle();
-
-  const dataStyle = useMemo(() => {
-    return {
-      theme,
-      style: {
-        ...(variant ? values[variant] : values.CMSButton),
-      },
-      id: uniqueid || uuidv4(),
-    };
-  }, [uniqueid, values, variant]);
-
-  const classes = useStyles(dataStyle);
+  const classes = useStyles({ theme });
 
   return (
     <button
-      ref={ref}
-      key={uniqueid}
       className={classnames(
         classes.blockColor,
         {
-          [classes.full]: props.full,
+          [classes.full]: full,
         },
         className,
       )}
@@ -97,7 +72,7 @@ export const CMSButton = forwardRef<
       type={type}
       {...rest}
     >
-      {props.children}
+      {children}
     </button>
   );
-});
+};
