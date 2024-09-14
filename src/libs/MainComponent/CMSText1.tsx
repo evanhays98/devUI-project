@@ -54,7 +54,7 @@ interface Props {
   text: string;
 }
 
-export const CMSText1 =(
+export const CMSText1@variant =(
   ({...rest, text}: TextProps & Props) => {
 
     const classes = useStyles({theme});
