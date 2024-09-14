@@ -1,8 +1,6 @@
 import React, { forwardRef, useMemo } from 'react';
 import { createUseStyles } from 'react-jss';
 import { theme, Theme } from '../theme';
-import { useCustomStyle } from '../../core/StyleContext';
-import { v4 as uuidv4 } from 'uuid';
 
 const useStyles = createUseStyles<string, {}, any>(
   (theme: Theme) => (@Start{
@@ -43,8 +41,8 @@ const useStyles = createUseStyles<string, {}, any>(
     },
     '@container (max-width: 480px)': {
       text: {
-      ...valueProps?.mobile,
-      },
+        ...valueProps?.mobile,
+      }
     },
   }@End),
 );
