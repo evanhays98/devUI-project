@@ -13,35 +13,35 @@ const useStyles = createUseStyles<string, {}, any>(
       margin: 0,
       width: 'fit-content',
       borderBottom:
-    theme?.desktop?.borderBottom ||
-    theme.desktop?.border ||
+    valueProps?.desktop?.borderBottom ||
+    valueProps.desktop?.border ||
     'none',
       borderLeft:
-    theme?.desktop?.borderLeft ||
-    theme.desktop?.border ||
+    valueProps?.desktop?.borderLeft ||
+    valueProps.desktop?.border ||
     'none',
       borderRight:
-    theme?.desktop?.borderRight ||
-    theme.desktop?.border ||
+    valueProps?.desktop?.borderRight ||
+    valueProps.desktop?.border ||
     'none',
       borderTop:
-    theme?.desktop?.borderTop ||
-    theme.desktop?.border ||
+    valueProps?.desktop?.borderTop ||
+    valueProps.desktop?.border ||
     'none',
-  ...theme?.desktop,
+  ...valueProps?.desktop,
 
       '&:hover': {
-    ...theme?.hover,
+    ...valueProps?.hover,
     },
   },
   '@container (max-width: 768px)': {
     text: {
-    ...theme?.tablet,
+    ...valueProps?.tablet,
     },
   },
   '@container (max-width: 480px)': {
     text: {
-    ...theme?.mobile,
+    ...valueProps?.mobile,
     },
   },
 }@End),
