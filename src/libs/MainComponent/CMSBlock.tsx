@@ -4,7 +4,7 @@ import { theme, Theme } from '../theme';
 import { useCustomStyle } from '../../core/StyleContext';
 
 const useStyles = createUseStyles<string, { style: any }, any>(
-  (theme: Theme) => ({
+  (theme: Theme) => (@Start{
     container: {
       display: 'flex',
       flexDirection: 'row',
@@ -27,7 +27,7 @@ const useStyles = createUseStyles<string, { style: any }, any>(
         ...valueProps?.mobile,
       },
     },
-  }),
+  }@End),
 );
 
 type BlockProps = React.HTMLAttributes<HTMLDivElement>;
@@ -39,13 +39,6 @@ interface Props {
 export const CMSBlock@variant = (props: BlockProps & Props) => {
   const { children, ...rest } = props;
   const { values } = useCustomStyle();
-
-  const dataStyle = useMemo(() => {
-    return {
-      theme,
-      style: values.CMSBlock,
-    };
-  }, [values]);
 
   const classes = useStyles({ theme });
 

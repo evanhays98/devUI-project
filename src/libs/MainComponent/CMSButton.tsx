@@ -5,7 +5,7 @@ import { theme, Theme } from '../theme';
 
 const useStyles = createUseStyles<string, {}, any>(
   (theme: Theme) => (@Start{
-  blockColor: {
+    blockColor: {
       background: '#22778e',
       minWidth: '@Stheme.marginBase * 10@E',
       borderRadius: '@Stheme.borderRadius.std@E',
@@ -25,21 +25,21 @@ const useStyles = createUseStyles<string, {}, any>(
       '&:hover': {
         ...valueProps?.hover,
       },
-  },
-  '@container (max-width: 768px)': {
-    blockColor: {
-    ...valueProps?.tablet,
     },
-  },
-  '@container (max-width: 480px)': {
-    blockColor: {
-    ...valueProps?.mobile,
+    '@container (max-width: 768px)': {
+      blockColor: {
+        ...valueProps?.tablet,
+      },
     },
-  },
-  full: {
-    width: '100%',
-  },
-}@End),
+    '@container (max-width: 480px)': {
+      blockColor: {
+      ...valueProps?.mobile,
+      },
+    },
+    full: {
+      width: '100%',
+    },
+  }@End),
 );
 
 interface BaseButtonProps {
