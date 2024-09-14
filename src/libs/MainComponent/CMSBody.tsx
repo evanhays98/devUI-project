@@ -53,14 +53,13 @@ interface Props {
 
 type TextProps = React.HTMLAttributes<HTMLHeadingElement>;
 
-export const CMSBody@variant =(
-  ({...rest, text}: TextProps & Props) => {
+export const CMSBody@variant =
+  ({ ...rest, text }: TextProps & Props) => {
 
-    const classes = useStyles({ theme });
-    return (
-      <p className={classes.text} {...rest}>
-        {text}
-      </p>
-    );
-  },
-);
+  const classes = useStyles({ theme });
+  return (
+    <p className={classes.text} {...rest}>
+      {text}
+    </p>
+  );
+};

@@ -53,7 +53,7 @@ interface Props {
 
 type TextProps = React.HTMLAttributes<HTMLHeadingElement>;
 
-export const CMSText3@variant =(
+export const CMSText3@variant =
   ({...rest, text}: TextProps & Props) => {
 
 
@@ -64,5 +64,4 @@ export const CMSText3@variant =(
         {text}
       </h3>
     );
-  },
-);
+  };

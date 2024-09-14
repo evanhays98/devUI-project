@@ -53,7 +53,7 @@ interface Props {
 
 type TextProps = React.HTMLAttributes<HTMLParagraphElement>;
 
-export const CMSLabel@variant = (
+export const CMSLabel@variant =
   ({ text, ...rest }: TextProps & Props) => {
     const classes = useStyles({ theme });
 
@@ -65,5 +65,4 @@ export const CMSLabel@variant = (
         {text}
       </p>
     );
-  },
-);
+  };

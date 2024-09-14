@@ -1,7 +1,6 @@
 import React, { useMemo } from 'react';
 import { createUseStyles } from 'react-jss';
 import { theme, Theme } from '../theme';
-import { useCustomStyle } from '../../core/StyleContext';
 
 const useStyles = createUseStyles<string, { style: any }, any>(
   (theme: Theme) => (@Start{
@@ -38,8 +37,6 @@ interface Props {
 
 export const CMSBlock@variant = (props: BlockProps & Props) => {
   const { children, ...rest } = props;
-  const { values } = useCustomStyle();
-
   const classes = useStyles({ theme });
 
   return (

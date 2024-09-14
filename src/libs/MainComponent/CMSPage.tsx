@@ -31,7 +31,7 @@ interface Props {
 
 type BlockProps = React.HTMLAttributes<HTMLDivElement>;
 
-export const CMSPage@variant = (
+export const CMSPage@variant =
   ({ children, ...rest }: BlockProps & Props) => {
     const classes = useStyles({ theme });
 
@@ -43,5 +43,4 @@ export const CMSPage@variant = (
         {children}
       </div>
     );
-  },
-);
+  };
