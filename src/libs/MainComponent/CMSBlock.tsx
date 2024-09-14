@@ -1,13 +1,17 @@
 import React, { forwardRef, useMemo } from 'react';
 import { createUseStyles } from 'react-jss';
-import { theme, Theme } from '../../theme';
+import { theme, Theme } from '../theme';
 import { useCustomStyle } from '../../core/StyleContext';
 import { v4 as uuidv4 } from 'uuid';
 
 const useStyles = createUseStyles<string, { style: any }, any>(
   (theme: Theme) => ({
     container: (props) => ({
-      minHeight: 'calc(100vh - 110px)',
+      display: 'flex',
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      width: '100%',
+      gap: theme.marginBase * 3,
       ...props.style?.desktop,
 
       '&:hover': {
@@ -27,6 +31,8 @@ const useStyles = createUseStyles<string, { style: any }, any>(
   }),
 );
 
+type BlockProps = React.HTMLAttributes<HTMLDivElement>;
+
 interface Props {
   children?: React.ReactNode;
   style?: React.CSSProperties;
@@ -34,24 +40,21 @@ interface Props {
   uniqueid?: string;
 }
 
-type BlockProps = React.HTMLAttributes<HTMLDivElement>;
-
-export const CMSPage = forwardRef<HTMLDivElement, BlockProps & Props>(
-  ({ children, style, uniqueid, variant, ...rest }, ref) => {
+export const CMSBlock = forwardRef<HTMLDivElement, BlockProps & Props>(
+  ({ children, style, variant, uniqueid, ...rest }, ref) => {
     const { values } = useCustomStyle();
 
     const dataStyle = useMemo(() => {
       return {
         theme,
         style: {
-          ...(variant ? values[variant] : values.CMSPage),
+          ...(variant ? values[variant] : values.CMSBlock),
         },
         id: uniqueid || uuidv4(),
       };
     }, [uniqueid, values, variant]);
 
     const classes = useStyles(dataStyle);
-
     return (
       <div
         className={classes.container}

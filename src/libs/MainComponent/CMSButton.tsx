@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 import React, { forwardRef, useMemo } from 'react';
 import { createUseStyles } from 'react-jss';
-import { theme, Theme } from '../../theme';
+import { theme, Theme } from '../theme';
 import { useCustomStyle } from '../../core/StyleContext';
 import { v4 as uuidv4 } from 'uuid';
 

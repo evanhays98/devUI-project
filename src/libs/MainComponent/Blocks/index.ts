@@ -1,1 +1,1 @@
-export * from './CMSBlock';
+export * from '../CMSBlock';

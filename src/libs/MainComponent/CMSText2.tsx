@@ -1,6 +1,6 @@
 import React, { forwardRef, useMemo } from 'react';
 import { createUseStyles } from 'react-jss';
-import { theme, Theme } from '../../theme';
+import { theme, Theme } from '../theme';
 import { useCustomStyle } from '../../core/StyleContext';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -10,7 +10,7 @@ const useStyles = createUseStyles<string, { style: any }, any>(
       fontFamily: 'Montserrat, sans-serif',
       color: theme.colors.black,
       fontWeight: 900,
-      fontSize: 18,
+      fontSize: 30,
       lineHeight: 1.5,
       margin: 0,
       width: 'fit-content',
@@ -57,7 +57,7 @@ interface Props {
 
 type TextProps = React.HTMLAttributes<HTMLHeadingElement>;
 
-export const CMSText4 = forwardRef<HTMLHeadingElement, TextProps & Props>(
+export const CMSText2 = forwardRef<HTMLHeadingElement, TextProps & Props>(
   ({ text, variant, uniqueid, ...rest }, ref) => {
     const { values } = useCustomStyle();
 
@@ -65,7 +65,7 @@ export const CMSText4 = forwardRef<HTMLHeadingElement, TextProps & Props>(
       return {
         theme,
         style: {
-          ...(variant ? values[variant] : values.CMSText4),
+          ...(variant ? values[variant] : values.CMSText2),
         },
         id: uniqueid || uuidv4(),
       };
@@ -74,9 +74,9 @@ export const CMSText4 = forwardRef<HTMLHeadingElement, TextProps & Props>(
     const classes = useStyles(dataStyle);
 
     return (
-      <h4 className={classes.text} ref={ref} {...rest}>
+      <h2 className={classes.text} ref={ref} key={uniqueid} {...rest}>
         {text}
-      </h4>
+      </h2>
     );
   },
 );

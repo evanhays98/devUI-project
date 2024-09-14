@@ -1,6 +1,6 @@
 import React, { forwardRef, useMemo } from 'react';
 import { createUseStyles } from 'react-jss';
-import { theme, Theme } from '../../theme';
+import { theme, Theme } from '../theme';
 
 const useStyles = createUseStyles<string, { style: any; id: string }, any>(
   (theme: Theme) => ({

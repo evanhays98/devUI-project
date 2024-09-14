@@ -1,1 +1,1 @@
-export * from './CMSButton';
+export * from '../CMSButton';
