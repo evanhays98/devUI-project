@@ -15,35 +15,35 @@ const useStyles = createUseStyles<string, { style: any }, any>(
       margin: 0,
       width: 'fit-content',
       borderBottom:
-        valueProps.style?.desktop?.borderBottom ||
-        valueProps.style.desktop?.border ||
+        valueProps?.desktop?.borderBottom ||
+        valueProps.desktop?.border ||
         'none',
       borderLeft:
-        valueProps.style?.desktop?.borderLeft ||
-        valueProps.style.desktop?.border ||
+        valueProps?.desktop?.borderLeft ||
+        valueProps.desktop?.border ||
         'none',
       borderRight:
-        valueProps.style?.desktop?.borderRight ||
-        valueProps.style.desktop?.border ||
+        valueProps?.desktop?.borderRight ||
+        valueProps.desktop?.border ||
         'none',
       borderTop:
-        valueProps.style?.desktop?.borderTop ||
-        valueProps.style.desktop?.border ||
+        valueProps?.desktop?.borderTop ||
+        valueProps.desktop?.border ||
         'none',
-      ...valueProps.style?.desktop,
+      ...valueProps?.desktop,
 
       '&:hover': {
-        ...valueProps.style?.hover,
+        ...valueProps?.hover,
       },
     },
     '@container (max-width: 768px)': {
       text:{
-        ...valueProps.style?.tablet,
+        ...valueProps?.tablet,
       },
     },
     '@container (max-width: 480px)': {
       text: {
-        ...valueProps.style?.mobile,
+        ...valueProps?.mobile,
       }
     },
   }@End),
@@ -51,8 +51,6 @@ const useStyles = createUseStyles<string, { style: any }, any>(
 
 interface Props {
   text: string;
-  variant?: string;
-  uniqueid?: string;
 }
 
 type TextProps = React.HTMLAttributes<HTMLHeadingElement>;
