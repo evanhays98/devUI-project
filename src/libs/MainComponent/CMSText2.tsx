@@ -5,48 +5,48 @@ import { useCustomStyle } from '../../core/StyleContext';
 import { v4 as uuidv4 } from 'uuid';
 
 const useStyles = createUseStyles<string, { style: any }, any>(
-  (theme: Theme) => ({
-    text: (props) => ({
+  (theme: Theme) => (@Start{
+    text: {
       fontFamily: 'Montserrat, sans-serif',
-      color: theme.colors.black,
+      color: '@Stheme.colors.black@E',
       fontWeight: 900,
       fontSize: 30,
       lineHeight: 1.5,
       margin: 0,
       width: 'fit-content',
       borderBottom:
-        props.style?.desktop?.borderBottom ||
-        props.style.desktop?.border ||
+        valueProps.style?.desktop?.borderBottom ||
+        valueProps.style.desktop?.border ||
         'none',
       borderLeft:
-        props.style?.desktop?.borderLeft ||
-        props.style.desktop?.border ||
+        valueProps.style?.desktop?.borderLeft ||
+        valueProps.style.desktop?.border ||
         'none',
       borderRight:
-        props.style?.desktop?.borderRight ||
-        props.style.desktop?.border ||
+        valueProps.style?.desktop?.borderRight ||
+        valueProps.style.desktop?.border ||
         'none',
       borderTop:
-        props.style?.desktop?.borderTop ||
-        props.style.desktop?.border ||
+        valueProps.style?.desktop?.borderTop ||
+        valueProps.style.desktop?.border ||
         'none',
-      ...props.style?.desktop,
+      ...valueProps.style?.desktop,
 
       '&:hover': {
-        ...props.style?.hover,
+        ...valueProps.style?.hover,
       },
-    }),
+    },
     '@container (max-width: 768px)': {
-      text: (props) => ({
-        ...props.style?.tablet,
-      }),
+      text:{
+        ...valueProps.style?.tablet,
+      },
     },
     '@container (max-width: 480px)': {
-      text: (props) => ({
-        ...props.style?.mobile,
-      }),
+      text: {
+        ...valueProps.style?.mobile,
+      }
     },
-  }),
+  }@End),
 );
 
 interface Props {
@@ -57,24 +57,14 @@ interface Props {
 
 type TextProps = React.HTMLAttributes<HTMLHeadingElement>;
 
-export const CMSText2 = forwardRef<HTMLHeadingElement, TextProps & Props>(
-  ({ text, variant, uniqueid, ...rest }, ref) => {
-    const { values } = useCustomStyle();
+export const CMSText2@variant =(
+  ({...rest, text}: TextProps & Props) => {
 
-    const dataStyle = useMemo(() => {
-      return {
-        theme,
-        style: {
-          ...(variant ? values[variant] : values.CMSText2),
-        },
-        id: uniqueid || uuidv4(),
-      };
-    }, [uniqueid, values, variant]);
 
-    const classes = useStyles(dataStyle);
+    const classes = useStyles({theme});
 
     return (
-      <h2 className={classes.text} ref={ref} key={uniqueid} {...rest}>
+      <h2 className={classes.text} {...rest}>
         {text}
       </h2>
     );
