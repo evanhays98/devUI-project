@@ -43,8 +43,8 @@ const useStyles = createUseStyles<string, {}, any>(
     },
     '@container (max-width: 480px)': {
       text: {
-        ...valueProps?.mobile,
-      ),
+      ...valueProps?.mobile,
+      },
     },
   }@End),
 );
