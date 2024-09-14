@@ -4,76 +4,63 @@ import { theme, Theme } from '../theme';
 import { useCustomStyle } from '../../core/StyleContext';
 import { v4 as uuidv4 } from 'uuid';
 
-const useStyles = createUseStyles<string, { style: any }, any>(
-  (theme: Theme) => ({
-    text: (props) => ({
+const useStyles = createUseStyles<string, {}, any>(
+  (theme: Theme) => (@Start{
+    text: {
       fontFamily: 'Montserrat, sans-serif',
-      color: theme.colors.black,
+      color: '@Stheme.colors.black@E',
       fontWeight: 500,
       fontSize: 15,
       lineHeight: 1.5,
       margin: 0,
       width: 'fit-content',
       borderBottom:
-        props.style?.desktop?.borderBottom ||
-        props.style.desktop?.border ||
+        valueProps?.desktop?.borderBottom ||
+        valueProps.desktop?.border ||
         'none',
       borderLeft:
-        props.style?.desktop?.borderLeft ||
-        props.style.desktop?.border ||
+        valueProps?.desktop?.borderLeft ||
+        valueProps.desktop?.border ||
         'none',
       borderRight:
-        props.style?.desktop?.borderRight ||
-        props.style.desktop?.border ||
+        valueProps?.desktop?.borderRight ||
+        valueProps.desktop?.border ||
         'none',
       borderTop:
-        props.style?.desktop?.borderTop ||
-        props.style.desktop?.border ||
+        valueProps?.desktop?.borderTop ||
+        valueProps.desktop?.border ||
         'none',
-      ...props.style?.desktop,
+      ...valueProps?.desktop,
 
       '&:hover': {
-        ...props.style?.hover,
+        ...valueProps?.hover,
       },
-    }),
+    },
     '@container (max-width: 768px)': {
-      text: (props) => ({
-        ...props.style?.tablet,
-      }),
+      text: {
+        ...valueProps?.tablet,
+      },
     },
     '@container (max-width: 480px)': {
-      text: (props) => ({
-        ...props.style?.mobile,
-      }),
+      text: {
+        ...valueProps?.mobile,
+      ),
     },
-  }),
+  }@End),
 );
 
 interface Props {
   text: string;
-  variant?: string;
-  uniqueid?: string;
 }
 
 type TextProps = React.HTMLAttributes<HTMLHeadingElement>;
 
-export const CMSBody = forwardRef<HTMLHeadingElement, TextProps & Props>(
-  ({ text, variant, uniqueid, ...rest }, ref) => {
-    const { values } = useCustomStyle();
+export const CMSBody@variant =(
+  ({...rest, text}: TextProps & Props) => {
 
-    const dataStyle = useMemo(() => {
-      return {
-        theme,
-        style: {
-          ...(variant ? values[variant] : values.CMSBody),
-        },
-        id: uniqueid || uuidv4(),
-      };
-    }, [uniqueid, values, variant]);
-
-    const classes = useStyles(dataStyle);
+    const classes = useStyles({ theme });
     return (
-      <p className={classes.text} ref={ref} key={uniqueid} {...rest}>
+      <p className={classes.text} {...rest}>
         {text}
       </p>
     );
