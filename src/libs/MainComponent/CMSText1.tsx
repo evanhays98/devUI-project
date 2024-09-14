@@ -3,7 +3,7 @@ import { createUseStyles } from 'react-jss';
 import { theme, Theme } from '../theme';
 
 const useStyles = createUseStyles<string, { style: any; id: string }, any>(
-  (theme: Theme) => ({
+  (theme: Theme) => (@Start{
     text:{
       fontFamily: 'Montserrat, sans-serif',
       color: theme.colors.black,
@@ -15,15 +15,15 @@ const useStyles = createUseStyles<string, { style: any; id: string }, any>(
       transition: 'all 0.2s ease-in-out',
       borderBottom:
         valueProps?.desktop?.borderBottom ||
-        valueProps.style.desktop?.border ||
+        valueProps.desktop?.border ||
         'none',
       borderLeft:
         valueProps?.desktop?.borderLeft ||
-        valueProps.style.desktop?.border ||
+        valueProps.desktop?.border ||
         'none',
       borderRight:
         valueProps?.desktop?.borderRight ||
-        valueProps.desktop?.border ||
+        valueProps?.border ||
         'none',
       borderTop:
         valueProps?.desktop?.borderTop ||
@@ -43,10 +43,10 @@ const useStyles = createUseStyles<string, { style: any; id: string }, any>(
     },
     '@container (max-width: 480px)': {
       text: {
-        ...valueProps.style?.mobile,
+        ...valueProps?.mobile,
       },
     },
-  }),
+  }@End),
 );
 
 type TextProps = React.HTMLAttributes<HTMLHeadingElement>;
