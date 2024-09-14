@@ -6,7 +6,7 @@ const useStyles = createUseStyles<string, { style: any; id: string }, any>(
   (theme: Theme) => (@Start{
     text:{
       fontFamily: 'Montserrat, sans-serif',
-      color: theme.colors.black,
+      color: '@Stheme.colors.black@E',
       fontWeight: 900,
       fontSize: 40,
       lineHeight: 1.5,
