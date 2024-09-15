@@ -2,7 +2,7 @@ import React, { forwardRef, useMemo } from 'react';
 import { createUseStyles } from 'react-jss';
 import { theme, Theme } from '../theme';
 
-const useStyles = createUseStyles<string, { style: any; id: string }, any>(
+const useStyles = createUseStyles<string, {}, any>(
   (theme: Theme) => (@Start{
     text:{
       fontFamily: 'Montserrat, sans-serif',
@@ -55,7 +55,7 @@ interface Props {
 }
 
 export const CMSText1@variant =
-  ({...rest, text}: TextProps & Props) => {
+  ({text, ...rest}: TextProps & Props) => {
 
     const classes = useStyles({theme});
 

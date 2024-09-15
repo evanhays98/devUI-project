@@ -55,7 +55,7 @@ interface Props {
 type TextProps = React.HTMLAttributes<HTMLHeadingElement>;
 
 export const CMSText4@variant =
-  ({...rest, text}: TextProps & Props) => {
+  ({text, ...rest}: TextProps & Props) => {
 
 
     const classes = useStyles({ theme });
