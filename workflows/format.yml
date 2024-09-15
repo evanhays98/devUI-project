@@ -3,7 +3,7 @@ name: Format Code
 on:
   push:
     branches:
-      - master  # or your default branch
+      - main  # or your default branch
 
 jobs:
   format:
