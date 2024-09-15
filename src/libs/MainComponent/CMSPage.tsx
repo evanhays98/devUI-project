@@ -10,12 +10,12 @@ const useStyles = createUseStyles<string, {}, any>(
     ...valueProps?.hover,
     },
   },
-  '@container (max-width: 768px)': {
+  '@media (max-width: 768px)': {
     container: {
     ...valueProps?.tablet,
     },
   },
-  '@container (max-width: 480px)': {
+  '@media (max-width: 480px)': {
     container: {
     ...valueProps?.mobile,
     },

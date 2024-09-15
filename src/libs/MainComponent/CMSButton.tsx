@@ -26,12 +26,12 @@ const useStyles = createUseStyles<string, {}, any>(
         ...valueProps?.hover,
       },
     },
-    '@container (max-width: 768px)': {
+    '@media (max-width: 768px)': {
       blockColor: {
         ...valueProps?.tablet,
       },
     },
-    '@container (max-width: 480px)': {
+    '@media (max-width: 480px)': {
       blockColor: {
       ...valueProps?.mobile,
       },

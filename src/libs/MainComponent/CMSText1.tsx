@@ -35,13 +35,13 @@ const useStyles = createUseStyles<string, {}, any>(
         ...valueProps?.hover,
       },
     },
-    '@container (max-width: 768px)': {
+    '@media (max-width: 768px)': {
       text: {
         fontSize: 30,
         ...valueProps?.tablet,
       },
     },
-    '@container (max-width: 480px)': {
+    '@media (max-width: 480px)': {
       text: {
         ...valueProps?.mobile,
       },
