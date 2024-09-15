@@ -16,7 +16,6 @@ body {
   overflow-x: hidden;
 }
 
-
 /* Custom scrollbar styling for WebKit-based browsers */
 ::-webkit-scrollbar {
   height: 4px;
@@ -30,16 +29,13 @@ body {
   border-radius: 10px;
   padding: 4px;
   height: 10px;
-
 }
-
 
 #root {
   display: flex;
   flex-direction: column;
   height: 100vh;
 }
-
 
 a {
   color: inherit;
@@ -88,8 +84,8 @@ select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
   border: none;
-  -webkit-text-fill-color: rgb(var(--black));
-  -webkit-box-shadow: 0 0 0px 1000px rgb(var(--blue-1)) inset;
+  -webkit-text-fill-color: var(--black);
+  -webkit-box-shadow: 0 0 0px 1000px var(--blue) inset;
   transition: background-color 5000s ease-in-out 0s;
 }
 
@@ -99,10 +95,9 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-
 h1 {
   font-family: 'Montserrat', sans-serif;
-  color: rgb(var(--black));
+  color: var(--black);
   font-weight: 900;
   font-size: 65px;
   line-height: 1.5;
@@ -110,7 +105,7 @@ h1 {
 
 h2 {
   font-family: 'Montserrat', sans-serif;
-  color: rgb(var(--white));
+  color: var(--white);
   font-weight: 800;
   font-size: 30px;
   line-height: 1.5;
@@ -118,7 +113,7 @@ h2 {
 
 h3 {
   font-family: 'Montserrat', sans-serif;
-  color: rgb(var(--black));
+  color: var(--black);
   font-weight: 800;
   font-size: 20px;
   line-height: 1.5;
@@ -126,7 +121,7 @@ h3 {
 
 h4 {
   font-family: 'Montserrat', sans-serif;
-  color: rgb(var(--black));
+  color: var(--black);
   font-weight: 800;
   font-size: 18px;
   line-height: 1.5;
@@ -134,7 +129,7 @@ h4 {
 
 h5 {
   font-family: 'Montserrat', sans-serif;
-  color: rgb(var(--black));
+  color: var(--black);
   font-weight: 800;
   font-size: 20px;
   line-height: 1.5;
@@ -142,7 +137,7 @@ h5 {
 
 p {
   font-family: 'Montserrat', sans-serif;
-  color: rgb(var(--black));
+  color: var(--black);
   font-weight: 700;
   font-size: 16px;
   line-height: 1.5;
