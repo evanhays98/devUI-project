@@ -5,9 +5,7 @@ import { theme, Theme } from '../theme';
 const useStyles = createUseStyles<string, {}, any>(
   (theme: Theme) => (@Start{
   container: {
-    minHeight: 'calc(100vh - 110px)',
   ...valueProps?.desktop,
-
       '&:hover': {
     ...valueProps?.hover,
     },

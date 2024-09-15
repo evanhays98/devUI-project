@@ -1,7 +1,6 @@
-import React, { forwardRef, useMemo } from 'react';
+import React from 'react';
 import { createUseStyles } from 'react-jss';
 import { theme, Theme } from '../theme';
-import { CMSPage } from './CMSPage';
 
 const useStyles = createUseStyles<string, {}, any>(
   (theme: Theme) => (@Start{
