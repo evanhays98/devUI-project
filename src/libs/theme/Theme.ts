@@ -1,40 +1,8 @@
 const basicColors = {
-  background: '#fffdfe',
-  blueGradiant: `-webkit-linear-gradient(100deg, ${'#4e0623'} 0%, ${'#ac667d'} 100%)`,
-  blueLightGradiant: `-webkit-linear-gradient(100deg, ${'rgba(90,146,161,0.5)'} 0%, ${'rgba(87,194,224,0.5)'} 100%)`,
-  blue: '#893858',
-  blueLight: '#e6d3da',
-  black: '#1a1d1f',
-  red: '#b63b6b',
-  redLight: 'rgba(213,71,88,0.5)',
-  midNightBlue: '#0c1842',
-  blueHover: '#3c0d25',
-  darkBlue: '#28050e',
-  lightGray: '#2d3134',
-  transparent: '#FFFFFF00',
-  green: '#7bde74',
-  transparentDarkGray: 'rgba(30,39,51,0.8)',
-  white: '#faf5f6',
+@colors
 };
 
 export type Colors = keyof typeof basicColors;
-export const ColorsString = {
-  background: 'background' as Colors,
-  red: 'red' as Colors,
-  green: 'green' as Colors,
-  midNightBlue: 'midNightBlue' as Colors,
-  blue: 'blue' as Colors,
-  blueHover: 'blueHover' as Colors,
-  lightGray: 'lightGray' as Colors,
-  black: 'black' as Colors,
-  transparent: 'transparent' as Colors,
-  blueGradiant: 'blueGradiant' as Colors,
-  blueLightGradiant: 'blueLightGradiant' as Colors,
-  redLight: 'redLight' as Colors,
-  white: 'white' as Colors,
-  blueLight: 'blueLight' as Colors,
-  darkBlue: 'darkBlue' as Colors,
-};
 
 export const theme = {
   colors: basicColors,
@@ -53,11 +21,6 @@ export const theme = {
     desktop: '@media (max-width: 1440px)',
   },
   boxShadow: {
-    std: `0px 0px 10px 2px ${basicColors.darkBlue}`,
-    white: `0 0 50px 0px ${basicColors.background}44`,
-    blue: `0px 0px 5px ${basicColors.blue}`,
-    blue2: `0px 0px 3px 2px ${basicColors.blue}`,
-    huge: `0px 0px 20px 2px ${basicColors.darkBlue}55`,
   },
   icon: {
     large: 24,
